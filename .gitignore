@@ -1,0 +1,47 @@
+# Flutter/Dart/Pub related
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+build/
+.idea/
+.vscode/
+*.iml
+
+# Android related
+.gradle/
+local.properties
+android/.gradle/
+android/app/build/
+
+# iOS related
+ios/Flutter/.last_build_id
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/engine/
+ios/Flutter/Generated.xcconfig
+ios/.generated/
+
+# Web related
+web/manifest.json
+
+# Linux related
+linux/flutter/ephemeral/
+
+# macOS related
+macos/Flutter/ephemeral/
+
+# Windows related
+windows/flutter/ephemeral/
+
+# Other
+*.log
+TODO.pages
+
+# Potentially sensitive files
+*.jks
+*.pem
+key.properties
