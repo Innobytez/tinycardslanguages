@@ -109,47 +109,10 @@ class HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.only(top: 30.0, bottom: 0.0),
         child: Stack(
           children: <Widget>[
-            buildTopPositioned(context, textColor),
             buildBottomPositioned(context, iconColor),
             buildMiddlePositioned(context, languages, backgroundColor, backgroundTextColor, textColor, borderColor),
           ],
         ),
-      ),
-    );
-  }
-
-  // Builds the top positioned widget with the title text
-  Positioned buildTopPositioned(BuildContext context, Color textColor) {
-    return Positioned(
-      top: 0,
-      left: 0,
-      right: 0,
-      height: MediaQuery.of(context).size.height * 0.2,
-      child: LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-          return Center(
-            child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Transform(
-                transform: Matrix4.diagonal3Values(
-                  constraints.maxWidth / 160,
-                  constraints.maxHeight / 50,
-                  1.0,
-                ),
-                alignment: FractionalOffset.center,
-                child: Text(
-                  'TINY CARDS',
-                  style: TextStyle(
-                    fontSize: 50,
-                    fontFamily: 'Kapra',
-                    color: textColor,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-          );
-        },
       ),
     );
   }
