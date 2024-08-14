@@ -37,7 +37,7 @@ jobs:
 
       - name: Archive and Export
         run: |
-          xcodebuild -workspace ios/Runner.xcworkspace -scheme Runner -sdk iphoneos -configuration Release archive -archivePath $PWD/build/Runner.xcarchive
+          xcodebuild -workspace ios/Runner.xcworkspace -scheme Runner -sdk iphoneos -configuration Release archive -archivePath $PWD/build/Runner.xcarchive -allowProvisioningUpdates
           xcodebuild -exportArchive -archivePath $PWD/build/Runner.xcarchive -exportOptionsPlist ios/Runner/Info.plist -exportPath $PWD/build/Runner.ipa
 
       - name: Upload to App Store Connect
