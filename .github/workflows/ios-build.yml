@@ -20,9 +20,6 @@ jobs:
         run: |
           export PATH="$PATH:${{ github.workspace }}/flutter/bin"
 
-      - name: Run Flutter Doctor
-        run: flutter doctor
-
       - name: Install CocoaPods dependencies
         run: |
           cd ios
