@@ -97,7 +97,7 @@ class HelpScreen extends StatelessWidget {
       top: 20,
       left: 20,
       right: 20,
-      bottom: 85, // adjust as needed
+      bottom: 90, // adjust as needed
       child: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).brightness == Brightness.dark ? Colors.black : Colors.white,

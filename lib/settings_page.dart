@@ -150,7 +150,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       top: 20,
       left: 20,
       right: 20,
-      bottom: 85,
+      bottom: 90,
       child: Container(
         decoration: BoxDecoration(
           color: backgroundColor,
@@ -410,7 +410,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       {'flag': 'assets/flags/cz.png', 'language': 'Czech'},
       {'flag': 'assets/flags/dk.png', 'language': 'Danish'},
       {'flag': 'assets/flags/nl.png', 'language': 'Dutch'},
-      {'flag': 'assets/flags/us.png', 'language': 'English'},
+      {'flag': 'assets/flags/gb.png', 'language': 'English'},
       {'flag': 'assets/flags/esp.png', 'language': 'Esperanto'},
       {'flag': 'assets/flags/ee.png', 'language': 'Estonian'},
       {'flag': 'assets/flags/ph.png', 'language': 'Filipino'},
@@ -475,6 +475,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       {'flag': 'assets/flags/sk.png', 'language': 'Slovak'},
       {'flag': 'assets/flags/si.png', 'language': 'Slovenian'},
       {'flag': 'assets/flags/so.png', 'language': 'Somali'},
+      {'flag': 'assets/flags/es.png', 'language': 'Spanish'},
       {'flag': 'assets/flags/id.png', 'language': 'Sundanese'},
       {'flag': 'assets/flags/tz.png', 'language': 'Swahili'},
       {'flag': 'assets/flags/se.png', 'language': 'Swedish'},

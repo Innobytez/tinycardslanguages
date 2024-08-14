@@ -222,10 +222,10 @@ class HomeScreenState extends State<HomeScreen> {
   // Builds the middle positioned widget with either the language list or flashcards
   Positioned buildMiddlePositioned(BuildContext context, List<Map<String, String>> languages, Color backgroundColor, Color backgroundTextColor, Color textColor, Color borderColor) {
     return Positioned(
-      top: MediaQuery.of(context).size.height * 0.15,
+      top: 20,
       left: 20,
       right: 20,
-      bottom: 75,
+      bottom: 80,
       child: AnimatedSwitcher(
         duration: const Duration(milliseconds: 800),
         transitionBuilder: (Widget child, Animation<double> animation) {
@@ -463,7 +463,7 @@ List<Map<String, String>> getLanguages(BuildContext context) {
     {'flag': 'assets/flags/nl.png', 'language': 'Frisian', 'displayLanguage': frisianWord[currentLanguage] ?? 'Frisian'},
     {'flag': 'assets/flags/es.png', 'language': 'Galician', 'displayLanguage': galicianWord[currentLanguage] ?? 'Galician'},
     {'flag': 'assets/flags/ge.png', 'language': 'Georgian', 'displayLanguage': georgianWord[currentLanguage] ?? 'Georgian'},
-    {'flag': 'assets/flags/us.png', 'language': 'English', 'displayLanguage': englishWord[currentLanguage] ?? 'English'},
+    {'flag': 'assets/flags/gb.png', 'language': 'English', 'displayLanguage': englishWord[currentLanguage] ?? 'English'},
     {'flag': 'assets/flags/fr.png', 'language': 'French', 'displayLanguage': frenchWord[currentLanguage] ?? 'French'},
     {'flag': 'assets/flags/de.png', 'language': 'German', 'displayLanguage': germanWord[currentLanguage] ?? 'German'},
     {'flag': 'assets/flags/gr.png', 'language': 'Greek', 'displayLanguage': greekWord[currentLanguage] ?? 'Greek'},
@@ -521,6 +521,7 @@ List<Map<String, String>> getLanguages(BuildContext context) {
     {'flag': 'assets/flags/sk.png', 'language': 'Slovak', 'displayLanguage': slovakWord[currentLanguage] ?? 'Slovak'},
     {'flag': 'assets/flags/si.png', 'language': 'Slovenian', 'displayLanguage': slovenianWord[currentLanguage] ?? 'Slovenian'},
     {'flag': 'assets/flags/so.png', 'language': 'Somali', 'displayLanguage': somaliWord[currentLanguage] ?? 'Somali'},
+    {'flag': 'assets/flags/es.png', 'language': 'Spanish', 'displayLanguage': spanishWord[currentLanguage] ?? 'Spanish'},
     {'flag': 'assets/flags/id.png', 'language': 'Sundanese', 'displayLanguage': sundaneseWord[currentLanguage] ?? 'Sundanese'},
     {'flag': 'assets/flags/tz.png', 'language': 'Swahili', 'displayLanguage': swahiliWord[currentLanguage] ?? 'Swahili'},
     {'flag': 'assets/flags/se.png', 'language': 'Swedish', 'displayLanguage': swedishWord[currentLanguage] ?? 'Swedish'},
