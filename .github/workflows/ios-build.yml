@@ -1,4 +1,4 @@
-name: Build iOS App
+name: Build and Deploy iOS App
 
 on:
   push:
@@ -22,21 +22,47 @@ jobs:
           flutter-version: 'stable'
 
       - name: Run Flutter Doctor
-      run: flutter doctor
+        run: flutter doctor
 
       - name: Install CocoaPods dependencies
         run: |
           cd ios
           pod install
-        working-directory: ios
 
       - name: Build iOS
         run: flutter build ios --release --no-codesign
 
-      - name: Archive and Export
+      - name: Create export options plist
         run: |
-          xcodebuild -workspace ios/Runner.xcworkspace -scheme Runner -sdk iphoneos -configuration Release archive -archivePath $PWD/build/Runner.xcarchive
-          xcodebuild -exportArchive -archivePath $PWD/build/Runner.xcarchive -exportOptionsPlist ios/Runner/Info.plist -exportPath $PWD/build/Runner.ipa
+          cat <<EOF > exportOptions.plist
+          <plist version="1.0">
+          <dict>
+            <key>method</key>
+            <string>app-store</string>
+            <key>teamID</key>
+            <string>$APP_STORE_CONNECT_TEAM_ID</string> <!-- Add this secret in GitHub -->
+            <key>uploadBitcode</key>
+            <true/>
+            <key>uploadSymbols</key>
+            <true/>
+            <key>signingStyle</key>
+            <string>automatic</string>
+          </dict>
+          </plist>
+          EOF
+
+      - name: Archive and Export IPA
+        run: |
+          xcodebuild -workspace ios/Runner.xcworkspace \
+                     -scheme Runner \
+                     -sdk iphoneos \
+                     -configuration Release \
+                     archive -archivePath $PWD/build/Runner.xcarchive
+
+          xcodebuild -exportArchive \
+                     -archivePath $PWD/build/Runner.xcarchive \
+                     -exportOptionsPlist exportOptions.plist \
+                     -exportPath $PWD/build/Runner.ipa
 
       - name: Upload to App Store Connect
         env:
@@ -44,4 +70,8 @@ jobs:
           APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
           APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
         run: |
-          xcrun altool --upload-app --type ios --file $PWD/build/Runner.ipa --apiKey $APP_STORE_CONNECT_API_KEY --apiIssuer $APP_STORE_CONNECT_API_ISSUER_ID
+          xcrun altool --upload-app \
+                       --type ios \
+                       --file $PWD/build/Runner.ipa/Runner.ipa \
+                       --apiKey $APP_STORE_CONNECT_API_KEY \
+                       --apiIssuer $APP_STORE_CONNECT_API_ISSUER_ID
