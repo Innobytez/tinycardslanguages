@@ -20,6 +20,9 @@ jobs:
         run: |
           export PATH="$PATH:${{ github.workspace }}/flutter/bin"
 
+      - name: Install Flutter dependencies
+        run: flutter pub get
+
       - name: Install CocoaPods dependencies
         run: |
           cd ios
