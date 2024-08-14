@@ -16,10 +16,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: 'stable'
+      - name: Set up Flutter
+        run: |
+          git clone https://github.com/flutter/flutter.git -b 3.22.1 --depth 1
+          export PATH="$PATH:`pwd`/flutter/bin"
 
       - name: Run Flutter Doctor
         run: flutter doctor
@@ -40,7 +40,7 @@ jobs:
             <key>method</key>
             <string>app-store</string>
             <key>teamID</key>
-            <string>$APP_STORE_CONNECT_TEAM_ID</string> <!-- Add this secret in GitHub -->
+            <string>$APP_STORE_CONNECT_TEAM_ID</string>
             <key>uploadBitcode</key>
             <true/>
             <key>uploadSymbols</key>
